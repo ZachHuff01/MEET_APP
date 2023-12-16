@@ -58,11 +58,15 @@ Scenario: View visual representations of event details
   Then the analyst should be able to interpret patterns and insights from the visual representation
 
 
-  -create using "npx create-react-app meet --template cra-template-pwa --use-npm"
-  -use create new repo in github
-  -add "homepage" URL between "private" and "dependancy" sections
-  -add "predeploy": "npm run build", "deploy": "gh-pages -d build" to "scripts"
-  -push changes to repo by using
+  *create using "npx create-react-app meet --template cra-template-pwa --use-npm"
+  
+  *use create new repo in github
+  
+  *add "homepage" URL between "private" and "dependancy" sections
+  
+  *add "predeploy": "npm run build", "deploy": "gh-pages -d build" to "scripts"
+  
+  *push changes to repo by using - 
    1. git init
    2. "make the change"
    3. git add .
