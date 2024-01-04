@@ -73,4 +73,8 @@ Scenario: View visual representations of event details
    4. git commit -m "(number of commit) commit"
    5. git branch -M main
    6. git push -u origin main
+
+Using serverless functions:
+
+These serverless functions will be responsible for securely managing user access, obtaining and refreshing OAuth2 tokens, and ensuring the security of interactions between your React application and the Google Calendar API. The serverless architecture offers benefits such as easy scalability, efficient resource utilization, and cost-effectiveness, as you only pay for the actual execution of functions rather than maintaining a dedicated server infrastructure
   
