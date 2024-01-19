@@ -3,6 +3,7 @@ import { getEvents } from '../api';
 import userEvent from '@testing-library/user-event';
 import Event from '../components/Event';
 
+
 describe('<EventList /> component', () => {
   let EventComponent;
   let allEvents;
@@ -52,3 +53,4 @@ describe('<EventList /> component', () => {
   });
 
 });
+
