@@ -1,9 +1,10 @@
 // src/__tests__/App.test.js
 
-import { render, within } from '@testing-library/react';
+import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
 import App from '../App';
+
 
 //unit testing
 describe('<App /> component', () => {
@@ -50,9 +51,16 @@ describe('<App /> integration', () => {
     );
 
     expect(allRenderedEventItems.length).toBe(berlinEvents.length);
+
     allRenderedEventItems.forEach(event => {
       expect(event.textContent).toContain("Berlin, Germany");
     });
   });
-
 });
+
+
+
+
+
+ 
+
