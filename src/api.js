@@ -1,5 +1,6 @@
 import mockData from './mock-data';
 
+
 //removeQuery function 
 const removeQuery = () => {
   let newurl;
