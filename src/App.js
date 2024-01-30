@@ -2,7 +2,7 @@ import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './App.css';
 
 
@@ -13,21 +13,41 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [setErrorAlert] = useState('');
 
+// wrap the definition of 'fetchData' in its own useCallback() Hook
 
-useEffect(() => {
-  fetchData();
+  const fetchData = useCallback(async () => {
+    const allEvents = await getEvents();
+
+    let filteredEvents =
+        currentCity === 'See all cities'
+            ? allEvents
+            : allEvents.filter(event => event.location === currentCity);
+
+    setEvents(filteredEvents.slice(0, currentNOE));
+    setAllLocations(extractLocations(allEvents));
 }, [currentCity, currentNOE]);
 
-const fetchData = async () => {
-  const allEvents = await getEvents();
+useEffect(() => {
+    fetchData();
+}, [currentCity, currentNOE, fetchData]);
 
-   let filteredEvents = currentCity === "See all cities" ?
-    allEvents :
-    allEvents.filter(event => event.location === currentCity)
 
-  setEvents(filteredEvents.slice(0, currentNOE));
-  setAllLocations(extractLocations(allEvents));
-}
+
+// useEffect(() => {
+//   fetchData();
+// }, [currentCity, currentNOE]);
+
+// const fetchData = async () => {
+//   const allEvents = await getEvents();
+
+//    let filteredEvents = currentCity === "See all cities" ?
+//     allEvents :
+//     allEvents.filter(event => event.location === currentCity)
+
+//   setEvents(filteredEvents.slice(0, currentNOE));
+//   setAllLocations(extractLocations(allEvents));
+// }
+
 
 
   return (
