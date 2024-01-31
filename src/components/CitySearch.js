@@ -1,13 +1,13 @@
-import { useState, useEffect, useReducer } from "react"; //added useReducer
+import { useState, useEffect } from "react"; //added useReducer
 
 const CitySearch = ({ allLocations, setCurrentCity, setInfoAlert }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [query, setQuery] = useState("");
-  const [suggestions, setSuggestions] = useReducer([]); //changed from useState
+  const [suggestions, setSuggestions] = useState([]); //changed from useState
 
   useEffect(() => {
     setSuggestions(allLocations);
-  }, [allLocations]); //`${allLocations}`
+  }, [`${allLocations}`]); //`${allLocations}`
 
   const handleInputChanged = (event) => {
     const value = event.target.value;
