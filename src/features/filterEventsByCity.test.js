@@ -1,7 +1,7 @@
 import { loadFeature, defineFeature } from 'jest-cucumber';
 import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import App from '../App';
+import App from '../components/NumberOfEvents';
 import { getEvents } from '../api';
 
 

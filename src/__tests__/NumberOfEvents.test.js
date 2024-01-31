@@ -1,7 +1,7 @@
 import { render, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import NumberOfEvents from '../components/NumberOfEvents';
-import App from '../App';
+import App from '../components/NumberOfEvents';
 
 
 
