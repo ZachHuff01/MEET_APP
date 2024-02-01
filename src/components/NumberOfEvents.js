@@ -1,5 +1,3 @@
-import React from "react";
-
 const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
 
     const handleInputChanged = (event) => {

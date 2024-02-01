@@ -3,7 +3,7 @@
 import { render, within, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { getEvents } from '../api';
-import App from '../components/NumberOfEvents';
+import App from '../App';
 
 
 //unit testing
