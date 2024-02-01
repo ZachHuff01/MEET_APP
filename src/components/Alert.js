@@ -33,6 +33,7 @@ class Alert extends Component {
   }
 }
 
+//search bar alert
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
@@ -41,6 +42,7 @@ class InfoAlert extends Alert {
   }
 }
 
+//number of events must be vaild number 
 class ErrorAlert extends Alert {
   constructor(props) {
     super (props);

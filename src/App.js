@@ -13,7 +13,7 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
-  const [ErrorAlert, setErrorAlert] = useState('');
+  const [errorAlert, setErrorAlert] = useState('');
  
 
 // wrap the definition of 'fetchData' in its own useCallback Hook
@@ -38,7 +38,7 @@ return (
   <div className="App">
     <div className="alerts-container">
       {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
-      {ErrorAlert.length ? <ErrorAlert text={ErrorAlert}/> : null}
+      {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
     </div>
     <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
