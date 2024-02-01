@@ -26,7 +26,7 @@ defineFeature(feature, (test) => {
       });
     });
 
-    then(/^the default number of displayed events will be (\d+)$/, () => {
+    then('the default number of displayed events will be (\d+)$', () => {
       expect(eventList.length).toEqual(32);
     });
   });
