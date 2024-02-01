@@ -3,7 +3,7 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { useEffect, useState, useCallback } from 'react';
-import { InfoAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert } from './components/Alert';
 import './App.css';
 
 
@@ -13,7 +13,7 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
-  
+  const [ErrorAlert, setErrorAlert] = useState('');
  
 
 // wrap the definition of 'fetchData' in its own useCallback Hook
@@ -38,12 +38,13 @@ return (
   <div className="App">
     <div className="alerts-container">
       {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
+      {ErrorAlert.length ? <ErrorAlert text={ErrorAlert}/> : null}
     </div>
-    <NumberOfEvents setCurrentNOE={setCurrentNOE} />
+    <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
     <EventList events={events} />
   </div>
   );
- }
+ };
  
  export default App;

@@ -5,14 +5,14 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   
         // Alerts
         let errorText;
-        if (value <= 0) {
-            errorText = "The number must be higher than 0."
-        } else {
-            errorText = ""
-        }
-  
-        setCurrentNOE(value);
-        setErrorAlert(errorText);
+        if (isNaN(value) || value <= 0) {
+            errorText = "only positive number are valid";
+            setErrorAlert(errorText);
+          } else {
+            errorText = "";
+            setErrorAlert(errorText);
+            setCurrentNOE(value);
+          }
     };
   
     return (
