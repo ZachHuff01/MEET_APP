@@ -63,7 +63,7 @@ export const getEvents = async () => {
   if ( !navigator.onLine ) {
     const events = localStorage.getItem("lastEvents");
     // eslint-disable-next-line no-undef
-    NProgress.done();
+    // NProgress.done();
     return events?JSON.parse(events):[];
   }
 
@@ -76,7 +76,7 @@ export const getEvents = async () => {
     const result = await response.json();
     if (result) {
       // eslint-disable-next-line no-undef
-      NProgress.done();
+      // NProgress.done();
       localStorage.setItem("lastEvents", JSON.stringify(result.events));
       return result.events;
     } else return null;
