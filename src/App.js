@@ -31,7 +31,7 @@ const App = () => {
 }, [currentCity, currentNOE]);
 
 useEffect(() => {
-  if (!navigator.onLine) {
+  if (navigator.onLine) {
     setWarningAlert("");
   } else {
     setWarningAlert("You have gone offline, events are loaded from cache!")
