@@ -3,7 +3,7 @@ import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { useEffect, useState, useCallback } from 'react';
-import { InfoAlert, ErrorAlert } from './components/Alert';
+import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
 import './App.css';
 
 
@@ -13,7 +13,8 @@ const App = () => {
   const [events, setEvents] = useState([]);
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
-  const [errorAlert, setErrorAlert] = useState("")
+  const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("")
  
 
 // wrap the definition of 'fetchData' in its own useCallback Hook
@@ -30,6 +31,11 @@ const App = () => {
 }, [currentCity, currentNOE]);
 
 useEffect(() => {
+  if (navigator.onLine) {
+    setWarningAlert("");
+  } else {
+    setWarningAlert("'You have gone offline, events are loaded from cache!")
+  }
     fetchData();
 }, [currentCity, currentNOE, fetchData]);
 
@@ -39,6 +45,7 @@ return (
     <div className="alerts-container">
       {infoAlert.length ? <InfoAlert text={infoAlert}/> : null}
       {errorAlert.length ? <ErrorAlert text={errorAlert}/> : null}
+      {warningAlert.length ? <WarningAlert text={warningAlert}/> :null}
     </div>
     <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
