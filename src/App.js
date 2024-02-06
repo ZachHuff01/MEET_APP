@@ -14,7 +14,7 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
-  const [warningAlert, setWarningAlert] = useState("")
+  const [warningAlert, setWarningAlert] = useState("");
  
 
 // wrap the definition of 'fetchData' in its own useCallback Hook
@@ -34,7 +34,7 @@ useEffect(() => {
   if (navigator.onLine) {
     setWarningAlert("");
   } else {
-    setWarningAlert("'You have gone offline, events are loaded from cache!")
+    setWarningAlert("You have gone offline, events are loaded from cache!")
   }
     fetchData();
 }, [currentCity, currentNOE, fetchData]);
