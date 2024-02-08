@@ -1,5 +1,6 @@
 import CitySearch from './components/CitySearch';
 import CityEventsChart from './components/CityEventsChart';
+import EventGenresChart from './components/EventsGenresChart';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
@@ -51,10 +52,13 @@ return (
     </div>
     <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
     <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}/>
+    <div className='charts-container'>
     <CityEventsChart allLocations={allLocations} events={events} />
+    <EventGenresChart events={events} />
+    </div> 
     <EventList events={events} />
   </div>
   );
- };
+};
  
  export default App;
