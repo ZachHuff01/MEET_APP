@@ -4,25 +4,25 @@ import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Responsive
 const CityEventsChart = ({ allLocations, events }) => {
   const [data, setData] = useState([]);
 
-    // Extract getData to a separate variable
-    const fetchData = getData;
+  useEffect(() => {
+    // Define getData inside the useEffect callback
+    const getData = () => {
+      const newData = allLocations.map((location) => {
+        const count = events.filter((event) => event.location === location).length
+        const city = location.split(', ')[0]
+        return { city, count };
+      })
+      return newData;
+    };
 
-    useEffect(() => {
-      const newData = fetchData();
-      setData(newData);
-    }, [fetchData]); // Use the extracted variable in the dependency array
+    // Call getData to retrieve data
+    const newData = getData();
+    setData(newData);
 
-  function getData () {
-    const data = allLocations.map((location) => {
-      const count = events.filter((event) => event.location === location).length
-      const city = location.split(', ')[0]
-      return { city, count };
-    })
-    return data;
-  };
-
+  }, [allLocations, events]); // Include allLocations and events in the dependency array
+  
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="99%" height={400}>
       <ScatterChart
         margin={{
           top: 20,
@@ -32,8 +32,8 @@ const CityEventsChart = ({ allLocations, events }) => {
         }}
       >
         <CartesianGrid />
-        <XAxis type="category" dataKey="city" name="city" />
-        <YAxis type="number" dataKey="count" name="number of events" allowDecimals={false} />
+        <XAxis type="category" dataKey="city" name="City" />
+        <YAxis type="number" dataKey="count" name="Number of events" allowDecimals={false} />
         <Tooltip cursor={{ strokeDasharray: '3 3' }} />
         <Scatter name="A school" data={data} fill="#8884d8" />
       </ScatterChart>
