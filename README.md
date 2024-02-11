@@ -1,3 +1,8 @@
+<img width="1307" alt="Screenshot 2024-02-10 at 6 56 08 PM" src="https://github.com/ZachHuff01/meet_app/assets/133275000/e05102ef-8591-4795-b8aa-b31de6eeb41f">
+<img width="1428" alt="Screenshot 2024-02-10 at 6 56 47 PM" src="https://github.com/ZachHuff01/meet_app/assets/133275000/871529fb-0abf-4e58-b36e-9b23ad8fbdb7">
+<img width="1414" alt="Screenshot 2024-02-10 at 6 56 19 PM" src="https://github.com/ZachHuff01/meet_app/assets/133275000/cfd754c4-97fe-484f-9faf-9be117e3813a">
+
+
 # User Stories
 ## 
 2. Show/Hide Event Details
